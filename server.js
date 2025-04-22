@@ -14,10 +14,10 @@ app.use(express.json());
 
 // ✅ Secure MySQL Connection (Connection Pool)
 const db = mysql.createPool({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER || "root",
+    host: process.env.DB_HOST || "ba8ze4phhew3hkhiwiog-mysql.services.clever-cloud.com",
+    user: process.env.DB_USER || "uifrqzurykjlcpps",
     password: process.env.DB_PASSWORD,  // Ensure this is set in .env
-    database: process.env.DB_NAME || "eazepark2",
+    database: process.env.DB_NAME || "ba8ze4phhew3hkhiwiog",
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
@@ -147,7 +147,7 @@ app.post("/login", async (req, res) => {
 
 
 // ✅ Start Server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3306;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
