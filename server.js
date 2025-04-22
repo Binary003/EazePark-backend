@@ -145,23 +145,23 @@ app.post("/login", async (req, res) => {
     }
 });
 app.post("/api/v1/posts", async (req, res) => {
-    const { title, content } = req.body;
-    console.log("Received data:", { title, content });  // Debugging
+  const { title, content } = req.body;
 
-    if (!title || !content) {
-        return res.status(400).json({ error: "Title and content are required" });
-    }
+  if (!title || !content) {
+    return res.status(400).json({ error: "Title and content are required" });
+  }
 
-    try {
-        const query = "INSERT INTO posts (title, content) VALUES (?, ?)";
-        const [result] = await db.execute(query, [title, content]);
+  try {
+    const query = "INSERT INTO posts (title, content) VALUES (?, ?)";
+    const [result] = await db.execute(query, [title, content]);
 
-        res.status(201).json({ message: "✅ Post created!", postId: result.insertId });
-    } catch (error) {
-        console.error("🔥 Error creating post:", error);
-        res.status(500).json({ error: "Failed to create post" });
-    }
+    res.status(201).json({ message: "✅ Post created!", postId: result.insertId });
+  } catch (error) {
+    console.error("🔥 Error creating post:", error);
+    res.status(500).json({ error: "Failed to create post" });
+  }
 });
+
 
 
 // ✅ Start Server
