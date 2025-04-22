@@ -5,7 +5,11 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://eazepark.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // ✅ Secure MySQL Connection (Connection Pool)
