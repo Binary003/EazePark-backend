@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors({
-  origin: ['https://eazepark.vercel.app', 'http://localhost:3000'],
+  origin: ['https://eazepark.vercel.app', 'http://localhost:3306'],
   credentials: true
 }));
 
