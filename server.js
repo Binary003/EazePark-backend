@@ -144,9 +144,9 @@ app.post("/login", async (req, res) => {
         res.status(500).json({ error: "Database error", details: error.message });
     }
 });
-// ✅ Create a post route
 app.post("/api/v1/posts", async (req, res) => {
     const { title, content } = req.body;
+    console.log("Received data:", { title, content });  // Debugging
 
     if (!title || !content) {
         return res.status(400).json({ error: "Title and content are required" });
